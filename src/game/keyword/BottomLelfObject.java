@@ -4,6 +4,7 @@ import base.GameObject;
 import base.GameObjectManager;
 import base.Vector2D;
 import game.Player.Player;
+import game.Player.PlayerRightHand;
 import physic.BoxCollider;
 import physic.HitObject;
 import physic.PhysicBody;
@@ -19,12 +20,18 @@ public class BottomLelfObject extends GameObject implements PhysicBody, HitObjec
     public BottomLelfObject(){
         this.velocity = new Vector2D();
         this.boxCollider = new BoxCollider(30,30);
-        this.runHitObject = new RunHitObject(Player.class);
+        this.runHitObject = new RunHitObject(PlayerRightHand.class);
+    }
+
+    @Override
+    public void run(){
+        this.runHitObject.run(this);
     }
 
     @Override
     public void getHit(GameObject gameObject) {
         hitBottomLelfObject = true;
+        this.velocity.set(1,-1);
     }
 
     @Override

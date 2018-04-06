@@ -31,6 +31,8 @@ public class Player extends GameObject {
         );
         this.frameCounter = new FrameCounter(50);
         this.renderer = this.imageRenderer;
+        this.playerRightHand = new PlayerRightHand();
+        this.playerLelfHand = new PlayerLelfHand();
     }
 
     @Override
