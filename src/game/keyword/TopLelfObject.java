@@ -2,7 +2,6 @@ package game.keyword;
 
 import base.GameObject;
 import base.Vector2D;
-import game.Player.Player;
 import game.Player.PlayerRightHand;
 import physic.BoxCollider;
 import physic.HitObject;
@@ -14,7 +13,7 @@ public class TopLelfObject extends GameObject implements HitObject, PhysicBody {
     private Vector2D velocity;
     private BoxCollider boxCollider;
     private RunHitObject runHitObject;
-    private boolean hitTopLelfObject;
+    public boolean hitTopLelfObject = false;
 
     public TopLelfObject(){
         this.velocity = new Vector2D();
@@ -27,8 +26,8 @@ public class TopLelfObject extends GameObject implements HitObject, PhysicBody {
         this.runHitObject.run(this);
     }
 
-    public void setTopLelfVelocity(){
-        this.velocity.set(1,1);
+    public Vector2D setTopLelfVelocity(){
+        return this.velocity.set(1,1);
     }
 
     @Override
@@ -39,6 +38,6 @@ public class TopLelfObject extends GameObject implements HitObject, PhysicBody {
     @Override
     public void getHit(GameObject gameObject) {
         hitTopLelfObject = true;
-        setTopLelfVelocity();
+
     }
 }

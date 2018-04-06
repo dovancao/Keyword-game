@@ -13,11 +13,15 @@ public class BottomRightObject extends GameObject implements HitObject, PhysicBo
     private Vector2D velocity;
     private BoxCollider boxCollider = new BoxCollider(30,30);
     private RunHitObject runHitObject;
-    private boolean hitBottomRightObject;
+    public boolean hitBottomRightObject = false;
 
     public BottomRightObject(){
         this.velocity = new Vector2D();
         this.runHitObject = new RunHitObject(PlayerLelfHand.class);
+    }
+
+    public Vector2D setBottomRightVelocity(){
+        return this.velocity.set(-1,-1);
     }
 
     @Override
@@ -28,8 +32,7 @@ public class BottomRightObject extends GameObject implements HitObject, PhysicBo
     @Override
     public void getHit(GameObject gameObject) {
         hitBottomRightObject = true;
-        this.velocity.set(-1,-1);
-        System.out.println("get hit");
+
     }
 
     @Override

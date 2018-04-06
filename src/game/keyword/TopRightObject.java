@@ -16,12 +16,16 @@ public class TopRightObject extends GameObject implements HitObject, PhysicBody 
     private Vector2D velocity;
     private BoxCollider boxCollider;
     private RunHitObject runHitObject;
-    private boolean hitTopRightObject;
+    public boolean hitTopRightObject = false;
 
     public TopRightObject(){
         this.velocity = new Vector2D();
         this.boxCollider = new BoxCollider(30,30);
         this.runHitObject = new RunHitObject(PlayerLelfHand.class);
+    }
+
+    public Vector2D setTopRightVelocity(){
+        return this.velocity.set(-1,1);
     }
 
     @Override
@@ -32,7 +36,6 @@ public class TopRightObject extends GameObject implements HitObject, PhysicBody 
     @Override
     public void getHit(GameObject gameObject) {
         hitTopRightObject = true;
-        this.velocity.set(-1,1);
     }
 
     @Override

@@ -15,12 +15,16 @@ public class BottomLelfObject extends GameObject implements PhysicBody, HitObjec
     public Vector2D velocity;
     private BoxCollider boxCollider;
     private RunHitObject runHitObject;
-    private boolean hitBottomLelfObject;
+    public boolean hitBottomLelfObject = false;
 
     public BottomLelfObject(){
         this.velocity = new Vector2D();
         this.boxCollider = new BoxCollider(30,30);
         this.runHitObject = new RunHitObject(PlayerRightHand.class);
+    }
+
+    public Vector2D setBottomLelfVelocity(){
+        return this.velocity.set(1,-1);
     }
 
     @Override
@@ -31,7 +35,7 @@ public class BottomLelfObject extends GameObject implements PhysicBody, HitObjec
     @Override
     public void getHit(GameObject gameObject) {
         hitBottomLelfObject = true;
-        this.velocity.set(1,-1);
+
     }
 
     @Override

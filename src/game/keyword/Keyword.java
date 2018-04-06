@@ -34,6 +34,11 @@ public class Keyword extends GameObject {
         this.topRightObject.position.set(this.position.x-15,this.position.y+15);
         this.topLelfObject.position.set(this.position.x-15,this.position.y+15);
 
+        if (this.topLelfObject.hitTopLelfObject) this.velocity.add(topLelfObject.setTopLelfVelocity());
+        if (this.topRightObject.hitTopRightObject) this.velocity.add(topRightObject.setTopRightVelocity());
+        if (this.bottomLelfObject.hitBottomLelfObject) this.velocity.add(bottomLelfObject.setBottomLelfVelocity());
+        if (this.bottomRightObject.hitBottomRightObject) this.velocity.add(bottomRightObject.setBottomRightVelocity());
+
     }
 
 }
